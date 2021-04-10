@@ -28,22 +28,32 @@ tableData.forEach(function(sightingsReport) {
 });
 
 
-d3.selectAll(".form-control").on("change", function() {
-    console.log(this);
-});
 // // reference button
-// var button = d3.select("#filter-btn");
+var button = d3.select("#filter-btn");
 
-// //reference for input field
-// var inputField = d3.select(".form-control");
+//reference for input field
+var form = d3.select(".form-control");
 
-// // Event handler for button click
-// button.on("click", function() {
-//     console.log("the button was clicked.");
-// // Input Field
-//     inputField.on("change", function() {
-//         var newFilter = d3.event.target.value;
-//         console.log(newFilter);
-// });
+button.on("click", runEnter);
+form.on("submit", runEnter);
 
-// });
+// Event handler for button click and enter
+function runEnter() {
+    //prevent page from refreshing
+    d3.event.preventDefault();
+
+    //select input element 
+    var inputElement = d3.select("#datetime");
+
+    // get the value of the input element
+    var inputValue = inputElement.property("value");
+
+    // log input
+    console.log(inputValue)
+    // filtered data based on form submission
+    var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
+
+    console.log(filteredData);
+    
+};
+
