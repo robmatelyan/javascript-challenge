@@ -26,3 +26,24 @@ tableData.forEach(function(sightingsReport) {
         cell.text(value);
     });
 });
+
+
+d3.selectAll(".form-control").on("change", function() {
+    console.log(this);
+});
+// // reference button
+// var button = d3.select("#filter-btn");
+
+// //reference for input field
+// var inputField = d3.select(".form-control");
+
+// // Event handler for button click
+// button.on("click", function() {
+//     console.log("the button was clicked.");
+// // Input Field
+//     inputField.on("change", function() {
+//         var newFilter = d3.event.target.value;
+//         console.log(newFilter);
+// });
+
+// });
